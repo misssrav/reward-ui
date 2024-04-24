@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 import rewardhub from "../resources/RewardHub.png";
 
 const Body = () => {
@@ -30,7 +31,8 @@ const Body = () => {
           <Button
             variant="contained"
             color="primary"
-            onClick={() => alert("Thanks for joining!")}
+            component={Link}
+            to="/signup"
           >
             Join Now
           </Button>
@@ -38,6 +40,19 @@ const Body = () => {
         <div style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
           <img src={rewardhub} alt="Reward Hub logo" />
         </div>
+      </div>
+
+      <div className="home-guide">
+        <h3>How to use Reward Hub</h3>
+        <p>Want to know how to use Reward Hub? Here’s our guide. </p>
+        <Button
+          variant="contained"
+          color="primary"
+          component={Link}
+          to="/userguide"
+        >
+          Read Guide
+        </Button>
       </div>
     </Container>
   );

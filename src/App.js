@@ -1,5 +1,5 @@
 import React from "react";
-
+import Register from "./components/Register";
 import Headermui from "./components/Headermui";
 import Body from "./components/Body";
 import About from "./components/About";
@@ -12,6 +12,7 @@ import Surveys from "./components/Surveys";
 import Account from "./components/Account";
 import Profile from "./components/Profile";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Userguide from "./components/Userguide";
 //import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -50,12 +51,12 @@ const router = createBrowserRouter([
       { path: "/contactus", element: <Contactus /> },
       { path: "/collect-points", element: <Collectpoints /> },
       { path: "/partner-stores", element: <PartnerStores /> },
+      { path: "/signup", element: <Register /> },
       { path: "/login", element: <Login /> },
       { path: "/surveys", element: <Surveys /> },
       { path: "/account", element: <Account /> },
       { path: "/profile", element: <Profile /> },
-
-      // { path: "/restaurants/:id", element: <RestaurantMenu /> },
+      { path: "/userguide", element: <Userguide /> },
     ],
     errorElement: <Error />,
   },
