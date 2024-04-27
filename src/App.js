@@ -13,6 +13,7 @@ import Account from "./components/Account";
 import Profile from "./components/Profile";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Userguide from "./components/Userguide";
+import Dashboard from "./components/Dashboard";
 //import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -57,6 +58,7 @@ const router = createBrowserRouter([
       { path: "/account", element: <Account /> },
       { path: "/profile", element: <Profile /> },
       { path: "/userguide", element: <Userguide /> },
+      { path: "/dashboard", element: <Dashboard /> },
     ],
     errorElement: <Error />,
   },

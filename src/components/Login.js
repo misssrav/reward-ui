@@ -34,8 +34,8 @@ export default function Login() {
       const responseData = await response.json();
       if (responseData) {
         if (responseData.token) {
-          localStorage.setItem("auth-token", responseData.token);
-          window.location.replace("/");
+          localStorage.setItem("rh_token", responseData.token);
+          window.location.replace("/dashboard");
         } else {
           alert(responseData.errors);
         }
