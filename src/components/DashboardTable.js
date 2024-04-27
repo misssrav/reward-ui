@@ -45,7 +45,7 @@ function Row(props) {
     <React.Fragment>
       <TableRow
         sx={{ "& > *": { borderBottom: "unset" } }}
-        style={{ backgroud: "red" }}
+        style={{ backgroundColor: row.isUsed ? "#E14914" : "#14E19A" }}
       >
         <TableCell>
           <IconButton
@@ -70,8 +70,15 @@ function Row(props) {
                 {/* History */}
               </Typography>
               <div className="flex center column">
-                {row.details.store_id}, {row.details.store_name},{" "}
-                {row.details.purchase_amount}
+                <div className="flex center column">
+                  Store id : {row.details.store_id}
+                </div>
+                <div className="flex center column">
+                  Store name : {row.details.store_name}
+                </div>
+                <div className="flex center column">
+                  Transaction Amount : {row.details.purchase_amount}
+                </div>
               </div>
             </Box>
           </Collapse>
@@ -124,13 +131,21 @@ export default function DashboardTable() {
         console.log(res);
         if (res && res.transactions && res.transactions.length > 0) {
           let rows_ = [];
+          let toggle = true;
           res.transactions.forEach((transaction) => {
+            toggle = !toggle;
+            let date = new Date();
             rows_.push(
               createData(
-                "new Date()",
+                date.getMonth() +
+                  1 +
+                  "/" +
+                  date.getDate() +
+                  "/" +
+                  date.getFullYear(),
                 transaction.transaction_id,
                 transaction.rewards_earned,
-                transaction.isUsed,
+                toggle,
                 transaction.store_id,
                 transaction.store_name,
                 transaction.purchase_amount
