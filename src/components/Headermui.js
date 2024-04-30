@@ -14,12 +14,13 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link as MuiLink } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -37,11 +38,13 @@ function ResponsiveAppBar() {
   };
   const handleLogin = () => {
     setIsLoggedIn(true); // Simulate login process
+    navigate("/login");
   };
 
   const handleLogout = () => {
     setIsLoggedIn(false); // Simulate logout process
     handleCloseUserMenu();
+    navigate("/");
   };
 
   return (
@@ -98,12 +101,6 @@ function ResponsiveAppBar() {
                 textDecoration: "none",
               }}
             >
-              {/* {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))} */}
-
               <MenuItem onClick={handleCloseNavMenu}>
                 <MuiLink
                   component={Link}
