@@ -3,7 +3,7 @@ ADD ./package.json /app/package.json
 RUN cd /app && npm install
 ADD . /app
 WORKDIR /app
-RUN npm build
+RUN npm run build
 
 
 FROM nginx:alpine
