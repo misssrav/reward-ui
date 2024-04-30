@@ -52,5 +52,5 @@ jobs:
             port: 22
             script:  |
                sudo docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GIT_TOKEN }} 
-               sudo docker compose pull 
+               sudo docker compose -f /home/csuftitan/application/docker-compose.yml pull 
                sudo docker compose -f /home/csuftitan/application/docker-compose.yml up -d
