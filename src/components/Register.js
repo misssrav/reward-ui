@@ -39,8 +39,8 @@ export default function Register() {
   }
   return (
     <div>
-      <h3>Reward Hub</h3>
-      <h4>Welcome to Flybuys</h4>
+      <h3> Welcome to Reward Hub</h3>
+
       <p>Enter your details to set up your account.</p>
       <form onSubmit={handleSubmit} action={<Link to="/login" />}>
         <Stack spacing={2} direction="row" sx={{ marginBottom: 4 }}>
