@@ -5,7 +5,7 @@ export default function Profile() {
   var token = localStorage.getItem("rh_token");
   const [userDetails, setDetails] = useState({});
   useEffect(() => {
-    fetch("http://localhost:2020/userdetails", {
+    fetch("http://34.125.34.237:2020/userdetails", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
