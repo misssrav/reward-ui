@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { TextField, Button, Container, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
   const [firstName, setFirstName] = useState("");
@@ -8,10 +11,31 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
+  const notify = () => toast("User Resistered Successfully !!");
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(firstName, lastName, email, dateOfBirth, password);
+    fetch("http://34.125.34.237:2020/signup", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstName: firstName,
+        lastName: lastName,
+        dateofbirth: dateOfBirth,
+        email: email,
+        password: password,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        notify();
+        navigate("/login");
+      });
+    // console.log(firstName, lastName, email, dateOfBirth, password);
   }
   return (
     <div>
@@ -81,6 +105,7 @@ export default function Register() {
       <small>
         Already have an account? <Link to="/login">Login Here</Link>
       </small>
+      <ToastContainer />
     </div>
   );
 }

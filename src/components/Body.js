@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import rewardhub from "../resources/RewardHub.png";
 
 const Body = () => {
+  var token = localStorage.getItem("rh_token");
+  const [isLoggedIn, setIsLoggedIn] = useState(token ? true : false);
+
   return (
     <Container>
       <div
@@ -28,14 +31,18 @@ const Body = () => {
             <h2>Welcome to Reward Hub</h2>
             <p>Start getting rewards from your everyday spending.</p>
           </div>
-          <Button
-            variant="contained"
-            color="primary"
-            component={Link}
-            to="/signup"
-          >
-            Join Now
-          </Button>
+          {!isLoggedIn ? (
+            <Button
+              variant="contained"
+              color="primary"
+              component={Link}
+              to="/signup"
+            >
+              Join Now
+            </Button>
+          ) : (
+            <div></div>
+          )}
         </div>
         <div style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
           <img src={rewardhub} alt="Reward Hub logo" />

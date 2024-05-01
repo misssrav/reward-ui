@@ -19,8 +19,20 @@ import { Link, useNavigate } from "react-router-dom";
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  var token = localStorage.getItem("rh_token");
+  const [isLoggedIn, setIsLoggedIn] = useState(token ? true : false);
   const navigate = useNavigate();
+
+  //const [btnName, setBtnName] = useState(token ? "Logout" : "Login");
+  // const headerBtnClicked = () => {
+  //   if (btnName === "Login") {
+  //     navigate("/login");
+  //   } else {
+  //     localStorage.clear("rh_token");
+  //     navigate("/login");
+  //   }
+  // };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -37,14 +49,15 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
   const handleLogin = () => {
-    setIsLoggedIn(true); // Simulate login process
+    //setIsLoggedIn(true); // Simulate login process
     navigate("/login");
   };
 
   const handleLogout = () => {
     setIsLoggedIn(false); // Simulate logout process
     handleCloseUserMenu();
-    navigate("/");
+    localStorage.clear("rh_tokr");
+    navigate("/login");
   };
 
   return (

@@ -118,7 +118,7 @@ export default function DashboardTable() {
   var token = localStorage.getItem("rh_token");
   const [rows, setRows] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:2020/transactionhistory", {
+    fetch("http://34.125.34.237:2020/transactionhistory", {
       method: "GET",
       headers: {
         Accept: "application/form-data",

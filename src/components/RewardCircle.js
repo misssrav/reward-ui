@@ -4,7 +4,7 @@ export default function RewardCircle() {
   const [rewards, setRewards] = useState(0);
   var token = localStorage.getItem("rh_token");
   useEffect(() => {
-    fetch("http://localhost:2020/getallrewards", {
+    fetch("http://34.125.34.237:2020/getallrewards", {
       method: "GET",
       headers: {
         Accept: "application/form-data",

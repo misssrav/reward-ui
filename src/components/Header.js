@@ -1,8 +1,20 @@
 import logo from "../resources/logo-color.png";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Header = () => {
-  const [btnName, setBtnName] = useState("Login");
+  var token = localStorage.getItem("rh_token");
+  const [btnName, setBtnName] = useState(token ? "Logout" : "Login");
+  const navigate = useNavigate();
+  const headerBtnClicked = () => {
+    if (btnName === "Login") {
+      navigate("/login");
+    } else {
+      localStorage.clear("rh_token");
+      navigate("/login");
+    }
+  };
+
+  //const [isLoggedIn, setIsLoggedIn] = useState(token ? true : false);
   return (
     <div className="header">
       <div className="logo-container">
@@ -24,12 +36,7 @@ const Header = () => {
           <li>
             <Link to="/collect-points">Collect Points </Link>
           </li>
-          <button
-            className="login"
-            onClick={() => {
-              btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
-            }}
-          >
+          <button className="login" onClick={headerBtnClicked}>
             {btnName}
           </button>
         </ul>

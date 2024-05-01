@@ -15,7 +15,7 @@ export default function Login() {
     console.log("login is excuted", formData);
 
     try {
-      const response = await fetch("http://localhost:2020/login", {
+      const response = await fetch("http://34.125.34.237:2020/login", {
         method: "POST",
         headers: {
           Accept: "application/json",
