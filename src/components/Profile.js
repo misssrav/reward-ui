@@ -34,10 +34,10 @@ export default function Profile() {
           </div>
           <div className="profileDetails">
             <div className="profileDetail">
-              First tName : {userDetails ? userDetails?.user?.firstName : ""}
+              First Name : {userDetails ? userDetails?.user?.firstName : ""}
             </div>
             <div className="profileDetail">
-              Last tName : {userDetails ? userDetails?.user?.lastName : ""}
+              Last Name : {userDetails ? userDetails?.user?.lastName : ""}
             </div>
             <div className="profileDetail">
               Email : {userDetails ? userDetails?.user?.email : ""}
