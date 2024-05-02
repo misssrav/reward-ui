@@ -235,10 +235,10 @@ function ResponsiveAppBar() {
                   <MenuItem onClick={handleCloseUserMenu}>
                     <MuiLink
                       component={Link}
-                      to="/account"
+                      to="/dashboard"
                       sx={{ textDecoration: "none", color: "inherit" }}
                     >
-                      <Typography textAlign="center">Account</Typography>
+                      <Typography textAlign="center">Dashboard</Typography>
                     </MuiLink>
                   </MenuItem>
                   {/* <MenuItem onClick={handleCloseUserMenu}>
